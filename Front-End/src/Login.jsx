@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Loading from './Loading';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
 
@@ -43,6 +44,9 @@ const Login = () => {
 
     return (
         <div className="container">
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
             <h2 className="my-4">Login</h2>
             <form onSubmit={handleLogin}>
                 <div className="mb-3">

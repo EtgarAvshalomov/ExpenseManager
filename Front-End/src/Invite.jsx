@@ -4,6 +4,7 @@ import { useAuth } from "./AuthContext";
 import Loading from "./Loading";
 import { useNavigate } from "react-router-dom";
 import AuthGuard from "./AuthGuard";
+import { Helmet } from 'react-helmet';
 
 const Invite = () => {
 
@@ -56,6 +57,9 @@ const Invite = () => {
 
     return (
         <div className="container">
+            <Helmet>
+                <title>Invite</title>
+            </Helmet>
             <h2 className="my-4">Invite Your Family!</h2>
             <form onSubmit={handleLinkGeneration}>
                 <div className="form-check form-switch mt-5">

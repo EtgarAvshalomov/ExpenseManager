@@ -6,11 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import Logo from './images/Expense Manager.png'
 import Loading from './Loading';
 import ErrorMessage from "./ErrorMessage";
+import { Helmet } from 'react-helmet';
 
 const Expenses = () => {
 
     const [expenses, setExpenses] = useState([]);
     const { userDetails, setUserDetails } = useAuth();
+    const [ filterDateStart, setFilterDateStart ] = useState(null);
+    const [ filterDateEnd, setFilterDateEnd ] = useState(null);
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true); // Loading state
@@ -21,10 +24,26 @@ const Expenses = () => {
 
     AuthGuard();
 
-    const getExpensesURL = 'https://localhost:7217/api/Expenses/Family';
+    const getExpensesURL = `https://localhost:7217/api/Expenses/Family`;
     const GetExpenses = async () => {
         try{
             const response = await axios.get(getExpensesURL, {
+                headers: {
+                    Authorization: `Bearer ${userDetails?.accessToken}`
+                }
+            });
+            setExpenses(response.data);
+        } catch (error) {
+            console.error('Error Fetching Expenses: ', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const getFilteredExpensesURL = `https://localhost:7217/api/Expenses/Family?dateTimeStart=${filterDateStart}&dateTimeEnd=${filterDateEnd}`;
+    const GetFilteredExpenses = async () => {
+        try{
+            const response = await axios.get(getFilteredExpensesURL, {
                 headers: {
                     Authorization: `Bearer ${userDetails?.accessToken}`
                 }
@@ -135,7 +154,11 @@ const Expenses = () => {
     }
 
     return (
-        <div> 
+        <div>
+            <Helmet>
+                <title>Expense Manager</title>
+            </Helmet>
+
             <ErrorMessage message={error} onClose={() => setError('')}/>
             <div className='centered mb-4 mt-3'>
                 <a href='/'>
@@ -143,8 +166,36 @@ const Expenses = () => {
                 </a>
             </div>
             <div>
-                <p className="centered" style={{fontSize: '24px'}}>Total Spent: ${totalExpenses.toFixed(2)}</p>
+                <p className="centered" style={{fontSize: '24px', marginBottom: '30px'}}>Total Spent: ${totalExpenses.toFixed(2)}</p>
                 <div className="text-end" style={{paddingRight: '12.7%', paddingBottom: '0.5%'}}>
+                    <label htmlFor="dateStart" className="form-label" style={{ marginRight: '15px' }}>Start Date:</label>
+                    <input 
+                        type="date" 
+                        id="dateStart" 
+                        name="dateStart" 
+                        value={null} 
+                        onChange={(e) => setFilterDateStart(e.target.value)}
+                        className="form-control" 
+                        style={{ maxWidth: '10%', display: 'inline-block', marginRight: '15px' }}
+                    />
+                    <label htmlFor="dateEnd" className="form-label" style={{ marginRight: '15px' }}>End Date:</label>
+                    <input 
+                        type="date" 
+                        id="dateEnd" 
+                        name="dateEnd" 
+                        value={null} 
+                        onChange={(e) => setFilterDateEnd(e.target.value)}
+                        className="form-control" 
+                        style={{ maxWidth: '10%', display: 'inline-block', marginRight: '15px' }}
+                    />
+                    <button 
+                        className="btn btn-primary btn-lg" 
+                        type="button"
+                        onClick={() => GetFilteredExpenses()}
+                        style={{ fontSize: '18px', marginRight: '15px'}}
+                    >
+                        Filter
+                    </button>
                     <button 
                         className="btn btn-primary btn-lg" 
                         type="button"
@@ -277,7 +328,7 @@ const Expenses = () => {
                         </>
                     ) : (
                         <div className="centered">
-                            <p style={{fontSize: '18px'}}>No expenses were found</p>
+                            <p style={{fontSize: '18px', marginTop: '30px'}}>No expenses were found</p>
                         </div>
                     )
             }

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Security.Claims;
 
 namespace ExpenseManagementAPI.Controllers
@@ -34,7 +35,37 @@ namespace ExpenseManagementAPI.Controllers
 
 		[HttpGet("Family")]
 		[Authorize]
-		public async Task<IActionResult> GetFamilyExpenses()
+		public async Task<IActionResult> GetFamilyExpenses([FromQuery] DateTime? dateTimeStart, DateTime? dateTimeEnd)
+		{
+			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+			if (userId == null)
+			{
+				return StatusCode(401, "User information not found in the token");
+			}
+
+			var user = await _userManager.FindByIdAsync(userId);
+			if (user == null)
+			{
+				return StatusCode(404, "User not found");
+			}
+
+			var expenses = await dbContext.Expenses.ToListAsync();
+
+			var familyExpenses = expenses
+				.Where(expense => expense.BuyerId != null &&
+								  (dateTimeEnd == null || expense.EventDateTime.Date >= dateTimeStart) &&
+								  (dateTimeStart == null || expense.EventDateTime.Date <= dateTimeEnd) &&
+								  dbContextAuth.Users
+								  .Any(buyer => buyer.Id == expense.BuyerId &&
+										buyer.FamilyId == user.FamilyId)).ToList();
+
+			return Ok(familyExpenses);
+		}
+
+		[HttpGet]
+		[Route("Filtered")]
+		[Authorize]
+		public async Task<IActionResult> GetFilteredExpenses([FromQuery] DateTime? dateTimeStart, DateTime? dateTimeEnd)
 		{
 			var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 			if (userId == null)
@@ -52,6 +83,8 @@ namespace ExpenseManagementAPI.Controllers
 
 			var filteredExpenses = expenses
 				.Where(expense => expense.BuyerId != null &&
+								  (dateTimeEnd == null || expense.EventDateTime.Date >= dateTimeStart) &&
+								  (dateTimeStart == null || expense.EventDateTime.Date <= dateTimeEnd) &&
 								  dbContextAuth.Users
 								  .Any(buyer => buyer.Id == expense.BuyerId &&
 										buyer.FamilyId == user.FamilyId)).ToList();
@@ -139,6 +172,7 @@ namespace ExpenseManagementAPI.Controllers
 				return StatusCode(403, "You cannot edit other users expenses");
 			}
 
+			expense.Title = editExpenseDTO.Title;
 			expense.Price = editExpenseDTO.Price;
 			expense.Quantity = editExpenseDTO.Quantity;
 			expense.Description = editExpenseDTO.Description;
