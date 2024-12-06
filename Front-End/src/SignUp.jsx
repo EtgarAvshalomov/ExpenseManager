@@ -3,6 +3,7 @@ import { useAuth } from "./AuthContext";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Loading from './Loading';
+import { Helmet } from 'react-helmet';
 
 const SignUp = () => {
 
@@ -85,7 +86,10 @@ const SignUp = () => {
 
     return (
         <div className="container">
-            <h2 className="my-4">Sign Up</h2>
+            <Helmet>
+                <title>Sign-Up</title>
+            </Helmet>
+            <h2 className="my-4">Sign-Up</h2>
             <form onSubmit={handleSignUp}>
                 <div className="mb-3">
                     <label htmlFor="first-name" className="form-label">First name</label>

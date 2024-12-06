@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import Loading from './Loading';
 import ErrorMessage from "./ErrorMessage";
+import { Helmet } from 'react-helmet';
 
 const Edit = () => {
 
@@ -104,6 +105,9 @@ const Edit = () => {
 
     return(
         <div className="container">
+            <Helmet>
+                <title>Edit</title>
+            </Helmet>
             <ErrorMessage message={error} onClose={() => setError('')} />
             <h2 className="my-4">Edit Expense</h2>
             <form onSubmit={handleEdit}>
