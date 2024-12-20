@@ -27,7 +27,8 @@ A **Family Expense Manager** app built using **Microsoft SQL Server**, **ASP.NET
 ### Prerequisites
 - [Node.js](https://nodejs.org/)  
 - [.NET SDK](https://dotnet.microsoft.com/download)  
-- [SQL Server](https://www.microsoft.com/en-us/sql-server)  
+- [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server)
+- [Docker](https://www.docker.com/) 
 
 ### Steps
 
