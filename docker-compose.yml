@@ -1,0 +1,31 @@
+services:
+
+  backend:
+    build:
+      context: ./Backend  # Path to the backend (ASP.NET Core) Dockerfile
+    ports:
+      - "8080:8080"  # Expose port 8080 for the backend
+    environment:
+      - ASPNETCORE_URLS=http://+:8080  # Set backend URL to listen on port 8080
+      - ASPNETCORE_ENVIRONMENT=Docker  # This sets the environment to Docker for the backend
+    networks:
+      - mynetwork  # Custom network to allow frontend to communicate with the backend
+    
+
+  frontend:
+    build:
+      context: ./Frontend  # Path to the frontend (React) Dockerfile
+    ports:
+      - "80:80"  # Expose port 80 for the frontend
+    environment:
+      - REACT_APP_API_URL=http://backend:8080/api  # API URL for React to call the backend
+    depends_on:
+      - backend  # Ensure backend is up before the frontend starts
+    networks:
+      - mynetwork  # Custom network to allow frontend to communicate with the backend
+    env_file:
+      - ./Frontend/.env.docker
+
+networks:
+  mynetwork:  # Define a custom network
+    driver: bridge  # Use bridge networking for communication between services

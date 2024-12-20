@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "QKFVKNss384NdCiiJ7i4B9gtWUawmXzvJNgFvNxqDcc=",
+  "Source": "ExpenseManagementAPI",
+  "BasePath": "_content/ExpenseManagementAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ExpenseManagementAPI\\wwwroot",
+      "Source": "ExpenseManagementAPI",
+      "ContentRoot": "C:\\Projects\\ExpenseManager\\Backend\\wwwroot\\",
+      "BasePath": "_content/ExpenseManagementAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
