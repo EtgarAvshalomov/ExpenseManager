@@ -51,7 +51,7 @@ A **Family Expense Manager** app built using **Microsoft SQL Server**, **ASP.NET
 #### Option 2: Run with Docker
 
 1. **Ensure Docker is installed and running on your machine.**
-2. **Build and start the Docker containers (backend and frontend) using: "docker-compose up --build"
+2. **Build and start the Docker containers (backend and frontend) using: "docker-compose up --build"**
 3. **Open your browser and navigate to http://localhost:80.**
 
 ## Usage
