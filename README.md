@@ -20,7 +20,8 @@ A **Family Expense Manager** app built using **Microsoft SQL Server**, **ASP.NET
 
 - **Frontend**: React  
 - **Backend**: ASP.NET Core  
-- **Database**: Microsoft SQL Server  
+- **Database**: Microsoft SQL Server
+- **Containerization**: Docker
 
 ## Installation
 
