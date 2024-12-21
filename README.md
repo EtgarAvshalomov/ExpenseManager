@@ -33,6 +33,8 @@ A **Family Expense Manager** app built using **Microsoft SQL Server**, **ASP.NET
 
 ### Steps
 
+#### Option 1: Run Locally
+
 1. **Clone the Repository**
 2. **Setup the Backend:**
    
@@ -40,11 +42,17 @@ A **Family Expense Manager** app built using **Microsoft SQL Server**, **ASP.NET
    - Update the connection string in appsettings.json to point to your SQL Server.
    - Run database migrations: "dotnet ef database update"
    - Start the backend server: "dotnet run"
-3. Setup the Frontend
+3. **Setup the Frontend**
    - Navigate to the frontend folder.
    - Install dependencies: "npm install"
    - Start the React development server: "npm start"
-4. Access the App: Open your browser and navigate to http://localhost:3000.
+4. **Access the App: Open your browser and navigate to http://localhost:3000.**
+
+#### Option 2: Run with Docker
+
+1. **Ensure Docker is installed and running on your machine.**
+2. **Build and start the Docker containers (backend and frontend) using: "docker-compose up --build"
+3. **Open your browser and navigate to http://localhost:80.**
 
 ## Usage
 
