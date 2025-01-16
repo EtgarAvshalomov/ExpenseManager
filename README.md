@@ -16,11 +16,18 @@ A **Family Expense Manager** app built using **Microsoft SQL Server**, **ASP.NET
 - **Expense Summaries and Filters**:  
   Users can view the total expenses for specific periods and filter expenses by timeframes for detailed insights.
 
+- **Secure Authentication with JWT**:  
+  Authentication is handled using JSON Web Tokens (JWT) to ensure secure and stateless user sessions.
+
+- **RESTful API**:  
+  The backend implements a RESTful API, enabling Create, Read, Update, and Delete (CRUD) operations for managing users, expenses, and families.
+
 ## Tech Stack
 
 - **Frontend**: React  
 - **Backend**: ASP.NET Core  
 - **Database**: Microsoft SQL Server
+- **Authentication**: JWT Tokens
 - **Containerization**: Docker
 
 ## Installation
