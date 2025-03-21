@@ -2,6 +2,7 @@ using ExpenseManagementAPI.Data;
 using ExpenseManagementAPI.Models;
 using ExpenseManagementAPI.Models.Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -116,7 +117,8 @@ if (app.Environment.IsDevelopment())
 }
 
 // Health check endpoint
-app.MapGet("/health", () => Results.Ok("Healthy"));
+
+app.MapGet("/api/health", () => Results.Ok("Healthy"));
 
 app.UseCors("AllowReactApp");
 

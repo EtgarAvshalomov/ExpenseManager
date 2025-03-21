@@ -14,17 +14,17 @@ const ErrorMessage = ({ message, onClose }) => {
 
 const styles = {
   container: {
-    position: 'fixed',    // Fixes it in place even if the user scrolls
-    top: '80px',          // Distance from the top of the viewport
-    left: '10px',         // Distance from the left of the viewport
-    backgroundColor: '#ffdddd',  // Light red background for error look
-    color: '#a94442',            // Darker red text color
+    position: 'fixed',
+    top: '80px',
+    left: '10px',
+    backgroundColor: '#ffdddd',
+    color: '#a94442',
     padding: '10px 15px',
     borderRadius: '5px',
-    border: '1px solid #a94442', // Red border
+    border: '1px solid #a94442',
     display: 'flex',
     alignItems: 'center',
-    zIndex: 1000,         // Ensures it appears above other elements
+    zIndex: 1000,
     boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
   },
   closeButton: {

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "QKFVKNss384NdCiiJ7i4B9gtWUawmXzvJNgFvNxqDcc=",
+  "Hash": "2io0Rar8/0TNl96jcMhFJL8LpQaT5SjlMVoBt0gD4iQ=",
   "Source": "ExpenseManagementAPI",
   "BasePath": "_content/ExpenseManagementAPI",
   "Mode": "Default",
@@ -15,5 +15,6 @@
       "Pattern": "**"
     }
   ],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

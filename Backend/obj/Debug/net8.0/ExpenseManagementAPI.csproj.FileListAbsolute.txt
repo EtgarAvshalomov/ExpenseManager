@@ -795,3 +795,7 @@ C:\Projects\ExpenseManager\Backend\obj\Debug\net8.0\refint\ExpenseManagementAPI.
 C:\Projects\ExpenseManager\Backend\obj\Debug\net8.0\ExpenseManagementAPI.pdb
 C:\Projects\ExpenseManager\Backend\obj\Debug\net8.0\ExpenseManagementAPI.genruntimeconfig.cache
 C:\Projects\ExpenseManager\Backend\obj\Debug\net8.0\ref\ExpenseManagementAPI.dll
+C:\Projects\ExpenseManager\Backend\bin\Debug\net8.0\ExpenseManagementAPI.staticwebassets.endpoints.json
+C:\Projects\ExpenseManager\Backend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Projects\ExpenseManager\Backend\obj\Debug\net8.0\staticwebassets\msbuild.ExpenseManagementAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Projects\ExpenseManager\Backend\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

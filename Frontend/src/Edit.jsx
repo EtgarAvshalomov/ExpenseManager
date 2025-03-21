@@ -128,7 +128,7 @@ const Edit = () => {
                         className="position-absolute"
                         style={{ bottom: '-20px', right: '10px', fontSize: '12px', color: 'gray' }}
                     >
-                        {titleCharLimit - title.length} / {titleCharLimit} characters remaining
+                        {title.length} / {titleCharLimit} characters
                     </div>
                 </div>
                 <div className="mb-3">
@@ -177,7 +177,7 @@ const Edit = () => {
                             className="position-absolute"
                             style={{ bottom: '-20px', right: '10px', fontSize: '12px', color: 'gray' }}
                         >
-                            {descriptionCharLimit - description.length} / {descriptionCharLimit} characters remaining
+                            {description.length} / {descriptionCharLimit} characters
                         </div>
                     </div>
                 </div>

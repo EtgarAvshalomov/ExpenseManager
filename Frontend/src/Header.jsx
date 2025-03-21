@@ -41,11 +41,7 @@ const Header = () => {
                             <li><a href="/About" className="nav-link px-2 text-white">About</a></li>
                             <li><a href="/Invite" className="nav-link px-2 text-white">Invite</a></li>
                         </ul>
-                        { // Search disabled for now
-                        /* <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                            <input type="search" className="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search" />
-                        </form> */
-                        }
+                        
                         { userDetails?.accessToken ? (
                                 <div>
                                     <button type="button" className="btn btn-warning me-3">{`${userDetails?.firstName} ${userDetails?.lastName}`}</button>
