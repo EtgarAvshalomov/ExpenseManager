@@ -1,7 +1,7 @@
 # Family Expense Manager
 
-![Expense Manager Example 1](https://github.com/user-attachments/assets/617692bc-5625-4c80-8b1d-a8f562431eea)
-![Expense Manager Example 2](https://github.com/user-attachments/assets/53cb8cbe-b184-4e6d-bda0-5aa60e26f413)
+![Expense Manager Example 1](https://github.com/user-attachments/assets/c1250bb5-4e44-4fbe-8913-e9e4426ffec3)
+![Expense Manager Example 2](https://github.com/user-attachments/assets/03efbd1f-cc53-4b94-b22d-95e1dbb8bb4d)
 
 A **Family Expense Manager** app built using **Microsoft SQL Server**, **ASP.NET Core**, and **React**. This application helps families efficiently manage and track their shared expenses while promoting transparency and accountability. **Now hosted on Azure!**
 
