@@ -5,7 +5,7 @@
 
 A **Family Expense Manager** app built using **Microsoft SQL Server**, **ASP.NET Core**, and **React**. This application helps families efficiently manage and track their shared expenses while promoting transparency and accountability. **Now hosted on Azure!**
 
-Live Demo (Currently stopped because Microsoft want my money :3): [Access the app here](https://expensemanager-frontend-web-gea9hwchfwfugacm.israelcentral-01.azurewebsites.net/)
+Live Demo (Currently stopped because my free trial expired): [Access the app here](https://expensemanager-frontend-web-gea9hwchfwfugacm.israelcentral-01.azurewebsites.net/)
 
 ## Features
 
